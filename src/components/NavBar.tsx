@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { motion, AnimatePresence, useScroll, useAnimation } from "framer-motion";
 import { useForm } from "react-hook-form";
 
+// Styled-components
 const Nav = styled(motion.nav)`
     display: flex;
     position: fixed;
@@ -20,22 +21,33 @@ const Items = styled.ul`
     display: flex;
     align-items: center;
 `;
+const LogoBox = styled(motion.div)`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(9, 132, 227, 1);
+`;
 const Logo = styled(motion.svg)`
     width: 40px;
-    margin: 0px 30px;
+    margin-left: 30px;
+    margin-right: 10px;
+`;
+const LogoTitle = styled(motion.h1)`
+    font-size: 32px;
 `;
 const Item = styled.li`
     position: relative;
     padding: 10px;
+    margin: 0px 10px;
     display: flex;
     justify-content: center;
 `;
-const CurCircle = styled(motion.div)`
-    position: absolute;
+const Pointer = styled(motion.div)`
+    position: fixed;
     width: 10px;
     height: 10px;
     border-radius: 5px;
-    bottom: -3px;
+    top: 40px;
     background-color: rgba(9, 132, 227, 1);
 `;
 const SearchBox = styled.form`
@@ -56,6 +68,7 @@ const Input = styled(motion.input)`
     border-radius: 15px;
     border: none;
 `;
+
 // Variants
 const LogoVariants = {
     normal: {
@@ -67,10 +80,10 @@ const LogoVariants = {
 };
 const navVariants = {
     top: {
-        backgroundColor: "rgba(212, 212, 212,0)",
+        backgroundColor: "rgba(116, 185, 255,0)",
     },
     scroll: {
-        backgroundColor: "rgba(212, 212, 212,1)",
+        backgroundColor: "rgba(116, 185, 255,0.3)",
     },
 };
 
@@ -114,23 +127,27 @@ export default function Header() {
         <Nav variants={navVariants} initial="top" animate={navAnimation}>
             <Col>
                 <Link to="/">
-                    <Logo
-                        onClick={() => setCurState("home")}
-                        variants={LogoVariants}
-                        initial="normal"
-                        whileHover="active"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 640 512"
-                    >
-                        <motion.path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z" />
-                    </Logo>
+                    <LogoBox onClick={() => setCurState("home")}>
+                        <Logo
+                            variants={LogoVariants}
+                            initial="normal"
+                            whileHover="active"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 640 512"
+                        >
+                            <motion.path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z" />
+                        </Logo>
+                        <LogoTitle>CHS</LogoTitle>
+                    </LogoBox>
                 </Link>
+            </Col>
+            <Col>
                 <Items>
                     {navMenus.map((menu, index) => (
                         <Link key={index} to={menu === "home" ? "/" : menu}>
                             <Item onClick={() => setCurState(menu)}>
                                 {navKorMenus[index]}
-                                {curState === menu && <CurCircle layoutId="point" />}
+                                {curState === menu && <Pointer layoutId="point" />}
                             </Item>
                         </Link>
                     ))}
@@ -141,6 +158,7 @@ export default function Header() {
                     <Magnifify
                         onClick={toggleSearch}
                         width={20}
+                        fill="rgba(99, 110, 114, 1.0)"
                         animate={{ x: searchOpen ? -145 : 0 }}
                         transition={{ duration: 0.6 }}
                         xmlns="http://www.w3.org/2000/svg"

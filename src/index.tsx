@@ -9,6 +9,9 @@ import "./fonts/fonts.css";
 
 const GlobalStyled = createGlobalStyle`
   ${reset}
+  *{
+    outline:none;
+  }
   body{
     font-size:16px;
     font-family: "Sebang";
@@ -20,7 +23,7 @@ const GlobalStyled = createGlobalStyle`
     text-decoration: none;
   }
   h1{
-        font-family:"SebangBold";
+        font-family:"FuturaBold";
     }
 `;
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);

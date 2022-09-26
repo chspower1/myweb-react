@@ -6,3 +6,7 @@
     font-family: "SebangBold";
     src: url("./SEBANG Gothic OTF Bold.otf") format("opentype");
 }
+@font-face {
+    font-family: "FuturaBold";
+    src: url("./Futura Bold.otf") format("opentype");
+}
