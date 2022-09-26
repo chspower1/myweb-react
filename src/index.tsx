@@ -13,6 +13,10 @@ const GlobalStyled = createGlobalStyle`
     font-size:16px;
     font-family: "Sebang";
     box-sizing: border-box;
+    color:rgba(99, 110, 114,1.0);
+  }
+  a{
+    color:rgba(99, 110, 114,1.0);
     text-decoration: none;
   }
   h1{
