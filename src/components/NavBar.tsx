@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 
 // Styled-components
 const Nav = styled(motion.nav)`
+    z-index: 1000;
     display: flex;
     position: fixed;
     justify-content: space-between;
@@ -41,6 +42,10 @@ const Item = styled.li`
     margin: 0px 10px;
     display: flex;
     justify-content: center;
+    transition: color 0.4s ease;
+    &:hover {
+        color: rgba(9, 132, 227, 1);
+    }
 `;
 const Pointer = styled(motion.div)`
     position: fixed;
@@ -55,6 +60,10 @@ const SearchBox = styled.form`
     justify-content: center;
     align-items: center;
     margin-right: 50px;
+    cursor: pointer;
+    &:hover {
+        color: rgba(9, 132, 227, 1);
+    }
 `;
 const Magnifify = styled(motion.svg)`
     z-index: 10;
@@ -84,6 +93,9 @@ const navVariants = {
     },
     scroll: {
         backgroundColor: "rgba(116, 185, 255,0.3)",
+    },
+    hover: {
+        backgroundColor: "rgba(116, 185, 255,0.2)",
     },
 };
 
@@ -124,7 +136,7 @@ export default function Header() {
         // setCurState();
     }, [pathname]);
     return (
-        <Nav variants={navVariants} initial="top" animate={navAnimation}>
+        <Nav variants={navVariants} initial="top" animate={navAnimation} whileHover="hover">
             <Col>
                 <Link to="/">
                     <LogoBox onClick={() => setCurState("home")}>
