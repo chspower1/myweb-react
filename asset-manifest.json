@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c01519fb.css",
+    "main.js": "/static/js/main.b860ba4d.js",
+    "static/media/SEBANG Gothic OTF.otf": "/static/media/SEBANG Gothic OTF.e673ab34f409ada50620.otf",
+    "static/media/SEBANG Gothic OTF Bold.otf": "/static/media/SEBANG Gothic OTF Bold.799512f7506013ea5139.otf",
+    "static/media/Futura Bold.otf": "/static/media/Futura Bold.b3dd2dcb9b51257052ca.otf",
+    "index.html": "/index.html",
+    "main.c01519fb.css.map": "/static/css/main.c01519fb.css.map",
+    "main.b860ba4d.js.map": "/static/js/main.b860ba4d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c01519fb.css",
+    "static/js/main.b860ba4d.js"
+  ]
+}
